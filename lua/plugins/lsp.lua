@@ -25,6 +25,16 @@ return {
 				build = function()
 					pcall(vim.cmd, "MasonUpdate")
 				end,
+        opts={
+          ui={
+            icons={
+
+              package_installed = "✓",
+              package_pending = "➜",
+              package_uninstalled = "✗",
+            }
+          }
+        }
 			},
 			{ "williamboman/mason-lspconfig.nvim" },
 
@@ -52,6 +62,8 @@ return {
 				"lua_ls",
         "tsserver",
 				"clangd",
+        "tailwindcss",
+        'efm',
 			})
 
 			lsp.setup()
@@ -84,4 +96,5 @@ return {
 	},
 	{ "saadparwaiz1/cmp_luasnip" },
 	{ "rafamadriz/friendly-snippets" },
+  {"aca/emmet-ls"},
 }

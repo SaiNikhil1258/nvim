@@ -1,8 +1,15 @@
 local mapkey = require("util.keymapper").mapvimkey
 
-vim.keymap.set('n', '<leader>e', vim.cmd.Ex)
-vim.keymap.set('n', '<C-s>', vim.cmd.w)
+local opts = {noremap=true, silent=true}
 
+
+vim.keymap.set('n', '<TAB>', '>>', opts)
+vim.keymap.set('n', '<S-TAB>', '<<', opts)
+
+
+vim.keymap.set('n', '<leader>e', vim.cmd.Ex)
+
+vim.keymap.set({ "i", "x", "n", "s" }, "<C-s>", "<cmd>w<cr><esc>", { desc = "Save File" })
 
 -- Buffer Navigation
 mapkey("<leader>bn", "bnext", "n") -- Next buffer
@@ -10,7 +17,15 @@ mapkey("<leader>bp", "bprevious", "n") -- Prev buffer
 mapkey("<leader>bb", "e #", "n") -- Switch to Other Buffer
 mapkey("<leader>`", "e #", "n") -- Switch to Other Buffer
 
--- Directory Navigatio}n
+
+-- Move Lines
+vim.keymap.set("n", "<A-j>", "<cmd>m .+1<cr>==", { desc = "Move Down" })
+vim.keymap.set("n", "<A-k>", "<cmd>m .-2<cr>==", { desc = "Move Up" })
+vim.keymap.set("i", "<A-j>", "<esc><cmd>m .+1<cr>==gi", { desc = "Move Down" })
+vim.keymap.set("i", "<A-k>", "<esc><cmd>m .-2<cr>==gi", { desc = "Move Up" })
+vim.keymap.set("v", "<A-j>", ":m '>+1<cr>gv=gv", { desc = "Move Down" })
+vim.keymap.set("v", "<A-k>", ":m '<-2<cr>gv=gv", { desc = "Move Up" })
+
 
 -- Pane and Window Navigation
 mapkey("<C-h>", "<C-w>h", "n") -- Navigate Left
@@ -26,6 +41,7 @@ mapkey("<C-j>", "TmuxNavigateDown", "n") -- Navigate Down
 mapkey("<C-k>", "TmuxNavigateUp", "n") -- Navigate Up
 mapkey("<C-l>", "TmuxNavigateRight", "n") -- Navigate Right
 
+
 -- Window Management
 mapkey("<leader>sv", "vsplit", "n") -- Split Vertically
 mapkey("<leader>sh", "split", "n") -- Split Horizontally
@@ -34,19 +50,27 @@ mapkey("<C-Down>", "resize -2", "n")
 mapkey("<C-Left>", "vertical resize +2", "n")
 mapkey("<C-Right>", "vertical resize -2", "n")
 
+
 -- Show Full File-Path
 mapkey("<leader>pa", "ShowPath", "n") -- Show Full File Path
+
+
 
 -- Notes
 mapkey("<leader>ng", "Neorg workspace general", "n")
 mapkey("<leader>nw", "Neorg workspace work", "n")
 mapkey("<leader>ny", "Neorg workspace youtube", "n")
 
+
+
 -- Indenting
 vim.keymap.set("v", "<", "<gv", { silent = true, noremap = true })
 vim.keymap.set("v", ">", ">gv", { silent = true, noremap = true })
 
+vim.keymap.set('v', '<leader>p', '"_dP', opts)
+
 local api = vim.api
+
 
 -- Zen Mode
 api.nvim_set_keymap("n", "<leader>zn", ":TZNarrow<CR>", {})
@@ -54,6 +78,7 @@ api.nvim_set_keymap("v", "<leader>zn", ":'<,'>TZNarrow<CR>", {})
 api.nvim_set_keymap("n", "<leader>sm", ":TZFocus<CR>", {})
 api.nvim_set_keymap("n", "<leader>zm", ":TZMinimalist<CR>", {})
 api.nvim_set_keymap("n", "<leader>za", ":TZAtaraxis<CR>", {})
+
 
 -- Comments
 api.nvim_set_keymap("n", "<C-_>", "gtc", { noremap = false })

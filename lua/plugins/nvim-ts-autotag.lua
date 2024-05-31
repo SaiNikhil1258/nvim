@@ -1,4 +1,3 @@
 return {
-	"windwp/nvim-ts-autotag",
-	lazy = false,
+  "windwp/nvim-ts-autotag",
 }
