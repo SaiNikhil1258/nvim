@@ -36,10 +36,10 @@ mapkey("<C-h>", "wincmd h", "t") -- Navigate Left
 mapkey("<C-j>", "wincmd j", "t") -- Navigate Down
 mapkey("<C-k>", "wincmd k", "t") -- Navigate Up
 mapkey("<C-l>", "wincmd l", "t") -- Navigate Right
-mapkey("<C-h>", "TmuxNavigateLeft", "n") -- Navigate Left
-mapkey("<C-j>", "TmuxNavigateDown", "n") -- Navigate Down
-mapkey("<C-k>", "TmuxNavigateUp", "n") -- Navigate Up
-mapkey("<C-l>", "TmuxNavigateRight", "n") -- Navigate Right
+mapkey("<C-h>", ":TmuxNavigateLeft<CR>", "n") -- Navigate Left
+mapkey("<C-j>", ":TmuxNavigateDown<CR>", "n") -- Navigate Down
+mapkey("<C-k>", ":TmuxNavigateUp<CR>", "n") -- Navigate Up
+mapkey("<C-l>", ":TmuxNavigateRight<CR>", "n") -- Navigate Right
 
 
 -- Window Management
@@ -71,13 +71,6 @@ vim.keymap.set('v', '<leader>p', '"_dP', opts)
 
 local api = vim.api
 
-
--- Zen Mode
-api.nvim_set_keymap("n", "<leader>zn", ":TZNarrow<CR>", {})
-api.nvim_set_keymap("v", "<leader>zn", ":'<,'>TZNarrow<CR>", {})
-api.nvim_set_keymap("n", "<leader>sm", ":TZFocus<CR>", {})
-api.nvim_set_keymap("n", "<leader>zm", ":TZMinimalist<CR>", {})
-api.nvim_set_keymap("n", "<leader>za", ":TZAtaraxis<CR>", {})
 
 
 -- Comments
