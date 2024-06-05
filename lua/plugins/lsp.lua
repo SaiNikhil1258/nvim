@@ -60,10 +60,9 @@ return {
 			lsp.ensure_installed({
 				"pyright",
 				"lua_ls",
-        "tsserver",
+                "tsserver",
 				"clangd",
-        "tailwindcss",
-        'efm',
+                "tailwindcss",
 			})
 
 			lsp.setup()
@@ -96,5 +95,5 @@ return {
 	},
 	{ "saadparwaiz1/cmp_luasnip" },
 	{ "rafamadriz/friendly-snippets" },
-  {"aca/emmet-ls"},
+    {"aca/emmet-ls"},
 }

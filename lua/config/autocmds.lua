@@ -13,7 +13,10 @@ autocmd("TextYankPost", {
 
 
 vim.api.nvim_create_autocmd(
-    "BufWritePost",
+
+
+
+        "BufWritePost",
     {
         pattern = "*.py",
         group = "AutoFormat",
@@ -24,4 +27,13 @@ vim.api.nvim_create_autocmd(
     }
 )
 
-
+vim.api.nvim_create_autocmd(
+    "BufWritePost",
+    {
+        pattern = "*.lua",
+        group = 'AutoFormat',
+        callback = function()
+            vim.lsp.buf.format({ async = false })
+        end
+    }
+)
