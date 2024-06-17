@@ -2,7 +2,6 @@ return {
     'ThePrimeagen/harpoon',
     event = 'VimEnter',
     config = function ()
-
         local harpoon_status_ok, harpoon = pcall(require, 'harpoon')
         if not harpoon_status_ok then
             return
