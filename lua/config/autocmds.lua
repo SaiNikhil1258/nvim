@@ -13,9 +13,6 @@ autocmd("TextYankPost", {
 
 
 vim.api.nvim_create_autocmd(
-
-
-
         "BufWritePost",
     {
         pattern = "*.py",
@@ -31,6 +28,17 @@ vim.api.nvim_create_autocmd(
     "BufWritePost",
     {
         pattern = "*.lua",
+        group = 'AutoFormat',
+        callback = function()
+            vim.lsp.buf.format({ async = false })
+        end
+    }
+)
+
+vim.api.nvim_create_autocmd(
+    "BufWritePost",
+    {
+        pattern = {"*.js", "*.ts", "*.tsx", "*.jsx"},
         group = 'AutoFormat',
         callback = function()
             vim.lsp.buf.format({ async = false })

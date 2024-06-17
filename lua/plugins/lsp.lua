@@ -26,6 +26,7 @@ return {
 					pcall(vim.cmd, "MasonUpdate")
 				end,
         opts={
+{ensure_installed={"prettier"}},
           ui={
             icons={
 
@@ -63,6 +64,7 @@ return {
                 "tsserver",
 				"clangd",
                 "tailwindcss",
+                "prettier"
 			})
 
 			lsp.setup()
