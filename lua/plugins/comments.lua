@@ -6,8 +6,11 @@ return {
 			block = "gtb",
 		},
 		opleader = {
-			line = "goc",
-			block = "gob",
+			line = "gc",
+			block = "gb",
+		},
+		extra = {
+			eol = "gca",
 		},
 	},
 	lazy = false,

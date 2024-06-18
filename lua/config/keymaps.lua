@@ -6,9 +6,7 @@ vim.keymap.set("n", "<TAB>", ">>", opts)
 vim.keymap.set("n", "<S-TAB>", "<<", opts)
 
 vim.keymap.set("n", "<leader>U", vim.cmd.UndotreeToggle)
-vim.keymap.set("n", "<leader>e", function()
-	require("oil").toggle_float()
-end)
+vim.keymap.set("n", "<leader>e", vim.cmd.Oil)
 
 vim.keymap.set({ "i", "x", "n", "s" }, "<C-s>", "<cmd>w<cr><esc>", { desc = "Save File" })
 
@@ -65,5 +63,9 @@ vim.keymap.set("v", "<leader>p", '"_dP', opts)
 local api = vim.api
 
 -- Comments
-api.nvim_set_keymap("n", "<C-_>", "gtc", { noremap = false })
-api.nvim_set_keymap("v", "<C-_>", "goc", { noremap = false })
+api.nvim_set_keymap("n", "<C-_>", "gcc", { noremap = false })
+api.nvim_set_keymap("v", "<C-_>", "gcc", { noremap = false })
+
+vim.keymap.set("n", "<leader>ff", function()
+	require("telescope.builtin").find_files({ hidden = true })
+end, { desc = "[S]earch [F]iles" })

@@ -25,22 +25,23 @@ local config = function()
 				},
 			},
 		},
+		previwers = true,
 		pickers = {
 			live_grep = {
 				file_ignore_patterns = { "node_modules", ".venv" },
 				additional_args = function(_)
 					return { "--hidden", "--no-ignore-vcs" }
 				end,
-				hidden = true,
-				no_ignore = true,
+				hidden = false,
+				no_ignore = false,
 			},
 			find_files = {
 				file_ignore_patterns = { "node_modules", ".venv" },
 				additional_args = function(_)
 					return { "--hidden", "--no-ignore-vcs" }
 				end,
-				no_ignore = true,
-				hidden = true,
+				no_ignore = false,
+				hidden = false,
 			},
 		},
 		extensions = {
@@ -56,7 +57,7 @@ return {
 		{ "nvim-lua/plenary.nvim" },
 		{
 			"nvim-telescope/telescope-fzf-native.nvim",
-			build = "make",
+			build = "cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && cmake --build build --config Release && cmake --install build --prefix build",
 		},
 	},
 	keys = keys,
