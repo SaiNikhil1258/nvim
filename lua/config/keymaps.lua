@@ -6,7 +6,9 @@ vim.keymap.set("n", "<TAB>", ">>", opts)
 vim.keymap.set("n", "<S-TAB>", "<<", opts)
 
 vim.keymap.set("n", "<leader>U", vim.cmd.UndotreeToggle)
-vim.keymap.set("n", "<leader>e", vim.cmd.Oil)
+vim.keymap.set("n", "<leader>e", function()
+	require("oil").toggle_float()
+end)
 
 vim.keymap.set({ "i", "x", "n", "s" }, "<C-s>", "<cmd>w<cr><esc>", { desc = "Save File" })
 
@@ -49,23 +51,16 @@ mapkey("<C-Right>", "vertical resize -2", "n")
 -- Show Full File-Path
 mapkey("<leader>pa", "ShowPath", "n") -- Show Full File Path
 
--- Notes
-mapkey("<leader>ng", "Neorg workspace general", "n")
-mapkey("<leader>nw", "Neorg workspace work", "n")
-mapkey("<leader>ny", "Neorg workspace youtube", "n")
-
 -- Indenting
 vim.keymap.set("v", "<", "<gv", { silent = true, noremap = true })
 vim.keymap.set("v", ">", ">gv", { silent = true, noremap = true })
 
 vim.keymap.set("v", "<leader>p", '"_dP', opts)
+vim.keymap.set("n", "<C-m>", vim.cmd.MarkdownPreview)
+vim.keymap.set("n", "<C-ms>", vim.cmd.MarkdownPreviewStop)
 
 local api = vim.api
 
 -- Comments
 api.nvim_set_keymap("n", "<C-_>", "gcc", { noremap = false })
 api.nvim_set_keymap("v", "<C-_>", "gcc", { noremap = false })
-
-vim.keymap.set("n", "<leader>ff", function()
-	require("telescope.builtin").find_files({ hidden = true })
-end, { desc = "[S]earch [F]iles" })
