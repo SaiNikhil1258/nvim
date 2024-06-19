@@ -20,7 +20,11 @@ local config = function()
 		defaults = {
 			layout_config = {
 				horizontal = {
+					width = 0.9,
+					height = 0.95,
 					preview_cutoff = 0,
+					preview_width = 0.5,
+					results_width = 0.7,
 				},
 			},
 			mappings = {
