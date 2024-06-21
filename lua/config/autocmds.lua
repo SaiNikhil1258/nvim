@@ -4,13 +4,22 @@ local augroup = vim.api.nvim_create_augroup
 local defaults = augroup("Defaults", {})
 vim.api.nvim_create_augroup("AutoFormat", {})
 
-autocmd("TextYankPost", {
+vim.api.nvim_create_autocmd("TextYankPost", {
+	group = vim.api.nvim_create_augroup("highlight_yank", {}),
+	desc = "Hightlight selection on yank",
+	pattern = "*",
+	callback = function()
+		vim.highlight.on_yank({ higroup = "IncSearch", timeout = 500 })
+	end,
+})
+--
+--[[ autocmd("TextYankPost", {
 	desc = "Highlight on yank",
 	group = defaults,
 	callback = function()
 		vim.highlight.on_yank()
 	end,
-})
+}) ]]
 
 --
 -- vim.api.nvim_create_autocmd(
