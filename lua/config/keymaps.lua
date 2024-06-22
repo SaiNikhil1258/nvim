@@ -50,7 +50,7 @@ mapkey("<C-Left>", "vertical resize -2", "n")
 mapkey("<C-Right>", "vertical resize +2", "n")
 
 -- Show Full File-Path
-mapkey("<leader>pa", "ShowPath", "n") -- Show Full File Path
+-- mapkey("<leader>pa", "ShowPath", "n") -- Show Full File Path
 
 -- Indenting
 vim.keymap.set("v", "<", "<gv", { silent = true, noremap = true })
