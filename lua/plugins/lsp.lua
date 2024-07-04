@@ -60,6 +60,7 @@ return {
 			lsp.ensure_installed({
 				"pyright",
 				"lua_ls",
+				"gopls",
 				"tsserver",
 				"clangd",
 				"tailwindcss",
@@ -112,6 +113,7 @@ return {
 				svelte = { { "prettierd", "prettier " } },
 				lua = { "stylua" },
 				python = { "black", "isort" },
+				go = { "gofmt", "golines", "goimports" },
 			},
 		},
 	},

@@ -5,13 +5,17 @@ local opts = { noremap = true, silent = true }
 vim.keymap.set("n", "<TAB>", ">>", opts)
 vim.keymap.set("n", "<S-TAB>", "<<", opts)
 
+vim.keymap.set("n", "<C-d>", "<C-d>zz")
+vim.keymap.set("n", "<C-u>", "<C-u>zz")
+vim.keymap.set("n", "n", "nzzzv")
+vim.keymap.set("n", "N", "Nzzzv")
 vim.keymap.set("n", "<leader>U", vim.cmd.UndotreeToggle)
 vim.keymap.set("n", "<leader>e", function()
 	require("oil").toggle_float()
 end)
 mapkey("<leader>nt", "NvimTreeToggle", "n")
 
-vim.keymap.set({ "i", "x", "n", "s" }, "<C-s>", "<cmd>w<cr><esc>", { desc = "Save File" })
+-- vim.keymap.set({ "i", "x", "n", "s" }, "<C-s>", "<cmd>w<cr><esc>", { desc = "Save File" })
 
 -- Buffer Navigation
 mapkey("<leader>bn", "bnext", "n") -- Next buffer
@@ -46,8 +50,8 @@ mapkey("<leader>sv", "vsplit", "n") -- Split Vertically
 mapkey("<leader>sh", "split", "n") -- Split Horizontally
 mapkey("<C-Up>", "resize -2", "n")
 mapkey("<C-Down>", "resize +2", "n")
-mapkey("<C-Left>", "vertical resize -2", "n")
-mapkey("<C-Right>", "vertical resize +2", "n")
+mapkey("<C-Left>", "vertical resize +2", "n")
+mapkey("<C-Right>", "vertical resize -2", "n")
 
 -- Show Full File-Path
 -- mapkey("<leader>pa", "ShowPath", "n") -- Show Full File Path
@@ -57,11 +61,12 @@ vim.keymap.set("v", "<", "<gv", { silent = true, noremap = true })
 vim.keymap.set("v", ">", ">gv", { silent = true, noremap = true })
 
 vim.keymap.set("v", "<leader>p", '"_dP', opts)
-vim.keymap.set("n", "<C-m>", vim.cmd.MarkdownPreview)
-vim.keymap.set("n", "<C-ms>", vim.cmd.MarkdownPreviewStop)
 
 local api = vim.api
 
+-- toggleterm
+
+-- if you only want these mappings for toggle term use term://*toggleterm#* instead
 -- Comments
 api.nvim_set_keymap("n", "<C-_>", "gcc", { noremap = false })
 api.nvim_set_keymap("v", "<C-_>", "gcc", { noremap = false })
