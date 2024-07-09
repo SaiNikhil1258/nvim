@@ -3,12 +3,17 @@ return {
 	dependencies = {
 		"rcarriga/nvim-dap-ui",
 		"nvim-neotest/nvim-nio",
+		"theHamsta/nvim-dap-virtual-text",
 	},
 	config = function()
 		local dap = require("dap")
 		local dapui = require("dapui")
+
+		require("dapui").setup()
+
 		vim.keymap.set("n", "<leader>dt", dap.toggle_breakpoint, {})
 		vim.keymap.set("n", "<leader>dc", dap.continue, {})
+		vim.keymap.set("n", "<leader>du", dapui.toggle, {})
 
 		-- setup dap
 		dapui.setup()
