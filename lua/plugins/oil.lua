@@ -9,9 +9,9 @@ return {
 				"icon",
 				"size",
 			},
-			view_options = {
-				show_hidden = true,
-			},
+			-- view_options = {
+			-- 	show_hidden = true,
+			-- },
 		})
 	end,
 }

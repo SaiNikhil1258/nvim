@@ -50,8 +50,8 @@ mapkey("<leader>sv", "vsplit", "n") -- Split Vertically
 mapkey("<leader>sh", "split", "n") -- Split Horizontally
 mapkey("<C-Up>", "resize -2", "n")
 mapkey("<C-Down>", "resize +2", "n")
-mapkey("<C-Left>", "vertical resize +2", "n")
-mapkey("<C-Right>", "vertical resize -2", "n")
+mapkey("<C-Left>", "vertical resize -2", "n")
+mapkey("<C-Right>", "vertical resize +2", "n")
 
 -- Show Full File-Path
 -- mapkey("<leader>pa", "ShowPath", "n") -- Show Full File Path
